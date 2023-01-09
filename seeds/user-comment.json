@@ -1,0 +1,12 @@
+[
+    {
+        "blog_comment": "great idea",
+        "post_id": 1,
+        "user_id": 2
+    },
+    {
+        "blog_comment": "we can try to implement this",
+        "post_id": 2,
+        "user_id": 1
+    }
+]

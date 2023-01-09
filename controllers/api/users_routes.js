@@ -6,7 +6,7 @@ const{User} = require('../../models');
 router.post ('/signup', async (req, res) =>
 {
     try{
-        const  userData = awaut (User.create)({
+        const  userData = await (User.create)({
             name: req.body.name, 
             password: req.body.password,
         });
@@ -21,9 +21,12 @@ router.post ('/signup', async (req, res) =>
     }
 
 })
+
+//login existing user
+
 router.post('/login', async (req, res) => {
     try {
-      const userData = await Member.findOne({ where: { email: req.body.email } });
+      const userData = await Member.findOne({ where: { username: req.body.username } });
   
       if (!userData) {
         res
@@ -52,3 +55,17 @@ router.post('/login', async (req, res) => {
       res.status(400).json(err);
     }
   });
+
+// logout existing user
+
+  router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).json("You are now logged out");
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
+  
+  module.exports = router;
