@@ -7,12 +7,12 @@ const seedDatabase = require ('../../seeds/seeds');
 router.use('/users', userRoutes);
 router.use('/blogs', blogRoutes);
 
-// router.post('/seedDatabase', (req,res) =>{
-//     seedDatabase(function(){
-//         res.json({
-//             message: "all seeded"
-//         })
-//     })
-// });
+router.post('/seedDatabase', (req,res) =>{
+    seedDatabase(function(){
+        res.json({
+            message: "all seeded"
+        })
+    })
+});
 
 module.exports = router;

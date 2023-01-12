@@ -1,0 +1,17 @@
+{{!-- display user blogs--}}
+<div class="row">
+  <h2 id="userblog">Your blog posts {{User}}!</h2>
+  <div class="col-auto">
+    <div>
+      {{#each myBlogs as |mypost|}}
+     
+       <p id="userblogTopicPEl">{{mypost.blog_topic}}</p>
+       <p id="userblogDescriptionPEl">{{mypost.blog_body}}</p>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+{{!-- <div id="userblogBtnDivEl">
+  <a href="/user-blog" class="button" type="submit" id="createPostBtn">Create new post</a>
+</div> --}}

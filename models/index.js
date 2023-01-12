@@ -1,11 +1,11 @@
 const User = require('./users')
 const Blog = require('./blog');
 const UserComment = require ('./user_comment');
-// const { post } = require('../controllers');
 
 
-// User.hasMany(Post,{
-// });
+
+User.hasMany(Blog,{
+});
 
 Blog.belongsTo(User,{
     foreignKey: 'user_id',

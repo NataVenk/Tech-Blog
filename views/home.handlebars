@@ -1,0 +1,16 @@
+{{!-- display activities for member to select --}}
+<div class="row mt-4">
+  <div class="col-md-6">
+
+    <div>
+      {{#each  bloglist as |blogentry|}}
+      <p id="userblogTopicPEl">{{ blogentry.blog_topic}}</p>
+      <p id="userblogDescriptionPEl">{{ blogentry.blog_body}}</p>
+      {{/each}}
+    </div>
+
+    
+  </div>
+
+ </div>
+  <script src="./js/profile.js"></script>

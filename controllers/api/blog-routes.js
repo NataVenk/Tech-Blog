@@ -4,7 +4,7 @@ const { Blog, User, UserComment} = require('../../models');
 
 
 
-router.post('/', async (req, res) => {
+router.post('/dashboard', async (req, res) => {
   try {
     const newBlog = await Blog.create({
       ...req.body,
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/blog',  async (req, res) => {
+router.delete('/dashboard',  async (req, res) => {
   try {
     const blogData = await Blog.destroy({
       where: {

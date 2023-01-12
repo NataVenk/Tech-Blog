@@ -1,11 +1,11 @@
 [
     {
-        "blog-topic": "how to build a website",
+        "blog_topic": "how to build a website",
         "blog_body": "step by step",
         "user_id": 1
     },
     {
-        "blog-topic": "how to build a website",
+        "blog_topic": "how to build a website",
         "blog_body": "step by step",
         "user_id": 2
     }
