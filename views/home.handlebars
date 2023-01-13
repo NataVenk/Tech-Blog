@@ -4,7 +4,8 @@
 
     <div>
       {{#each  bloglist as |blogentry|}}
-      <p id="userblogTopicPEl">{{ blogentry.blog_topic}}</p>
+
+      <a href = "/blog/{{blogentry.id}}"> <p id="userblogTopicPEl">{{ blogentry.blog_topic}}</p></a>
       <p id="userblogDescriptionPEl">{{ blogentry.blog_body}}</p>
       {{/each}}
     </div>

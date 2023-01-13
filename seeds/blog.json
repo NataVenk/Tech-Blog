@@ -8,5 +8,10 @@
         "blog_topic": "how to build a website",
         "blog_body": "step by step",
         "user_id": 2
+    },
+    {
+        "blog_topic": "2how to build a website",
+        "blog_body": "2step by step",
+        "user_id": 1
     }
 ]
