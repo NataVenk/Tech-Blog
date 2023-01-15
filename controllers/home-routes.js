@@ -29,6 +29,13 @@ router.get("/home", async (req, res) => {
   });
 });
 
+router.get("/newblog", withAuth, async (req, res) => {
+ 
+  return res.render("newblog", {
+    logged_in: req.session.logged_in,
+  });
+});
+
 router.get("/blog/:id", async (req, res) => {
   const blog = await Blog.findOne({
     where: { id: req.params.id },

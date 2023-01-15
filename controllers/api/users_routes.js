@@ -7,14 +7,14 @@ const{User, Blog} = require('../../models');
 router.post ('/signup', async (req, res) =>
 {
     try{
-        const  userData = await (User.create)({
+        const  userData = await User.create({
             email: req.body.email, 
             password: req.body.password,
         });
         req.session.save(()=> {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            res.json({user: userData, message:"Login successful"});
+            res.json({user: userData, message:"Signup successful"});
         });
     } catch (err){
         console.log(err);
