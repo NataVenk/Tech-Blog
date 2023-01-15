@@ -1,7 +1,7 @@
-console.log('Inside Login', "hello");
+
 
 const loginForm = async (event) => {
-  console.log('Inside loginForm', "hello");
+  
   event.preventDefault();
 
   // Collect values from the login form
