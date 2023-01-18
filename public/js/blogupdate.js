@@ -1,3 +1,5 @@
+// update blog 
+
 const updateBlog = async(event) => {
    event.preventDefault();
 
@@ -8,8 +10,8 @@ const updateBlog = async(event) => {
    if (blog_topic && blog_body) {
  
      const response = await fetch(`/api/blogs/${blog_id}`, {
-       method: 'PUT',
-       body: JSON.stringify({ blog_topic, blog_body }),
+       method: 'GET',
+       body: JSON.stringify({ blog_topic, blog_body}),
        headers: { 'Content-Type': 'application/json' },
      });
  
@@ -21,4 +23,22 @@ const updateBlog = async(event) => {
      };
    };
  };
+/// delete blog chosen
+ const delBlog = async (event) => {
+  if (event.target.hasAttribute('blog-id')) {
+    const id = event.target.getAttribute('blog-id');
+
+    const response = await fetch(`/api/blogs/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to delete blog');
+    }
+  }
+};
+
   document.querySelector("#blogUpdate").addEventListener("click", updateBlog);
+  document.querySelector("#blogDelete").addEventListener("click", delBlog);
