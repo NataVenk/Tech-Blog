@@ -1,14 +1,23 @@
 {{!-- display user blogs--}}
 <div class="row">
   <h2 id="userblog">Your blog posts {{email}}!</h2>
-  <div class="col-auto">
-    <div>
-      {{#each Blogs as |blog|}}
-     
-       <p id="userblogTopicPEl">{{blog.blog_topic}}</p>
-       <p id="userblogDescriptionPEl">{{blog.blog_body}}</p>
-      {{/each}}
-    </div>
-  </div>
+  <article class="message">
+
+  
+        <div class="col-auto">
+          <div  id="card-blog">
+            {{#each Blogs as |blog|}}
+            <div class="message-header">
+
+            <a href = "/blogs/{{blog.id}}"> <p class="card-blog" id="userblogTopicPEl">{{ blog.blog_topic}}</p></a>
+            </div>
+            <div class="message-body">
+            <p id="userblogDescriptionPEl">{{blog.blog_body}}</p>
+            </div>
+
+            {{/each}}
+          </div>
+        </div>
+  </article>
 </div>
 <a href = "/newblog" ><input class="button" type="submit" value="Add New Post"></a>

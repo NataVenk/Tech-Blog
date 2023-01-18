@@ -2,16 +2,17 @@
   <div class="col-md-6">
 
     <div>
-        <p> {{blog2comment.blog_topic}}</p>
-         <p> {{blog2comment.blog_body}}</p>
+        <p> {{blog_topic}}</p>
+         <p> {{blog_body}}</p>
+         
 
     </div>
 
    
-<input class="input is-info blog-comment" type="text" placeholder="Your comment">
-<input class="button" type="submit" value="Submit">
+<input class="input is-info blog-com" id="blog-com" type="text" placeholder="Your comment" data-id="{{id}}">
+<button class="button" type="submit" id="commentSub" value="Submit">Submit Comment</button>
     
   </div>
-
+{{!-- // submit comment should have a link to a handlabers to show that post and a comment below --}}
  </div>
-  <script src="./js/profile.js"></script>
+  <script src="/js/comment.js"></script>

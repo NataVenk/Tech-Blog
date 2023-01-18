@@ -19,7 +19,6 @@ router.get("/login", async (req, res) => {
   });
 });
 
-
 router.get("/signup", async (req, res) => {
   res.render("signup", {
     logged_in: req.session.logged_in,
@@ -37,7 +36,6 @@ router.get("/home", async (req, res) => {
 });
 
 router.get("/newblog", withAuth, async (req, res) => {
- 
   return res.render("newblog", {
     logged_in: req.session.logged_in,
   });
@@ -48,11 +46,48 @@ router.get("/blog/:id", async (req, res) => {
     where: { id: req.params.id },
   });
   const blog2comment = blog.get({ plain: true });
-  console.log ("=========")
+  console.log("=========");
   console.log(blog2comment);
-  return res.render('singleblog', {
-    blog2comment,
-    logged_in: req.session.logged_in
+  return res.render("singleblog", {
+    ...blog2comment,
+    logged_in: req.session.logged_in,
+  });
+});
+
+router.get("/blog/:id", async (req, res) => {
+  const blog = await Blog.findOne({
+    where: { id: req.params.id },
+  });
+  const blogUpdate = blog.get({ plain: true });
+  console.log("=========");
+  console.log(blogUpdate);
+  return res.render("modify-blog", {
+    ...blogUpdate,
+    logged_in: req.session.logged_in,
+  });
+});
+// router.get("/blog/:id", async (req, res) => {
+//   const blog = await Blog.findOne({
+//     where: { id: req.params.id },
+//   });
+  
+//   return res.render("blogcomment", {
+//     ...blog,
+//     logged_in: req.session.logged_in,
+//   });
+// });
+
+
+router.get("user/blog/:id", async (req, res) => {
+  const blog = await Blog.findOne({
+    where: { id: req.params.id },
+  });
+  const blog2update = blog.get({ plain: true });
+  console.log("=========");
+  console.log(blog2update);
+  return res.render("blogupdate", {
+    blog2update,
+    logged_in: req.session.logged_in,
   });
 });
 
@@ -69,7 +104,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     });
 
     const user = myBlogs.get({ plain: true });
-    console.log(user);
+   
 
     return res.render("dashboard", {
       ...user,

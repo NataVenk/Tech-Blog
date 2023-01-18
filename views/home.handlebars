@@ -1,17 +1,22 @@
 {{!-- display activities for member to select --}}
 <div class="row mt-4">
   <div class="col-md-6">
+    <article class="message">
 
-    <div>
-      {{#each  bloglist as |blogentry|}}
+        <div>
+          {{#each  bloglist as |blogentry|}}
+          <div class="message-header">
 
-      <a href = "/blog/{{blogentry.id}}"> <p id="userblogTopicPEl">{{ blogentry.blog_topic}}</p></a>
-      <p id="userblogDescriptionPEl">{{ blogentry.blog_body}}</p>
-      {{/each}}
-    </div>
+          <a href = "/blog/{{blogentry.id}}"> <p id="userblogTopicPEl">{{ blogentry.blog_topic}}</p></a>
+          </div>
+           <div class="message-body">
+          <p id="userblogDescriptionPEl">{{ blogentry.blog_body}}</p>
+          </div>
+          {{/each}}
+        </div>
 
-    
+    </article>
   </div>
 
  </div>
-  <script src="./js/profile.js"></script>
+  {{!-- <script src="./js/profile.js"></script> --}}

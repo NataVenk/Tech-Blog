@@ -1,17 +1,17 @@
 [
     {
-        "blog_topic": "how to build a website",
-        "blog_body": "step by step",
+        "blog_topic": "What Is a Regex?",
+        "blog_body": "A regex, which is short for regular expression, is a sequence of characters that defines a specific search pattern. ",
         "user_id": 1
     },
     {
-        "blog_topic": "how to build a website",
-        "blog_body": "step by step",
+        "blog_topic": "What is ORM?",
+        "blog_body": "A database is essential to any application that collects data. Larger applications typically collect more data—making data management more complex.",
         "user_id": 2
     },
     {
-        "blog_topic": "2how to build a website",
-        "blog_body": "2step by step",
+        "blog_topic": "Finding Your Career Fit: Using the STAR Interview Strategy",
+        "blog_body": "So what is STAR? It is a framework around which you can build responses to interview questions. It ensures that your responses are easy-to-follow, fully address the interviewer’s question, and highlight your valuable skills",
         "user_id": 1
     }
 ]

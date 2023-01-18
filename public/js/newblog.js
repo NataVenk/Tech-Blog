@@ -1,15 +1,15 @@
 const newBlog = async (event) => {
 
     event.preventDefault();
+ 
+    const blog_topic = document.querySelector('#blog-topic').value.trim();
+    const blog_body = document.querySelector('#blog-body').value.trim();
+    
+    if (blog_topic && blog_body) {
   
-    const blogTopic = document.querySelector('#blog-topic').value.trim();
-    const blogBody = document.querySelector('#blog-body').value.trim();
-  
-    if (blogTopic && blogBody) {
-  
-      const response = await fetch('/dashboard', {
+      const response = await fetch('/api/blogs', {
         method: 'POST',
-        body: JSON.stringify({ blog_id }),
+        body: JSON.stringify({ blog_topic, blog_body }),
         headers: { 'Content-Type': 'application/json' },
       });
   
