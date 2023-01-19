@@ -3,6 +3,9 @@ const path = require("path");
 const { Blog, User, UserComment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+
+// creating a blog
+
 router.post("/", async (req, res) => {
   console.log(req.body.blog_topic);
   console.log(req.body.blog_body);
@@ -19,11 +22,12 @@ router.post("/", async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+//// getting specific blog to add comment/modify
 router.post("/:id", async (req, res) => {
  
   try {
     const newComment = await UserComment.create({
+      id: req.body.id,
       blog_comment: req.body.blog_comment,
       blog_id: req.params.id,
       user_id: req.session.user_id,
@@ -35,38 +39,36 @@ router.post("/:id", async (req, res) => {
   }
 });
 
-
+/// modify blog
 router.put("/:id", async (req, res) => {
-  console.log("i'm here");
+  console.log("i'm here inside put");
   try {
-    const blogupdates = await Blog.create({
+    const blogupdate = await Blog.update({
+      id: req.body.id,
       blog_topic: req.body.blog_topic,
       blog_body: req.body.blog_body,
       user_id: req.session.user_id,
     });
-    res.status(200).json(blogupdates);
+    res.status(200).json(blogupdate);
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
   }
 });
-router.delete("/:id", async (req, res) => {
-  try {
-    const blogData = await Blog.destroy({
+/// delete blog
+router.delete("/:id", (req, res) => {
+  console.log ("inside delete")
+   Blog.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+       
       },
-    });
+    })
+    .then ((deleteBlog) =>{
+      res.json(deleteBlog);
+    })
+    .catch((err)  => res.json(err));
+  });
 
-    if (!blogdata) {
-      res.status(404).json({ message: 'No blog found !' });
-      return;
-    }
-    res.status(200).json(blogData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
+    
 module.exports = router;

@@ -3,15 +3,18 @@
     <p> Update Blog</p>
 
     <div>
-      <p> {{blogUpdate.blog_topic}}</p>
-      <p> {{blogUpdate.blog_body}}</p>
+      <input id= "blog-topic" value="{{blog_topic}}"> </input>
+      <input id= "blog-body" value="{{blog_body}}"> </input>
+      <input id= "blog-com" value="{{id}}"> </input>
+
+    
 
     </div>
 
-    <button class="button" type="submit" id="blogUpdate" value="Submit"> Update blog </button>
-  <button class="button" type="submit" id="blogDelete" value="Delete"> Delete blog </button>
-   <button class="btn btn-sm btn-danger" blog-id="{{blog.id}}" id="blogDelete">DELETE</button>
+    <a href = "/dashboard"><button class="button" type="submit" id="blogUpdate" value="Submit"> Update blog </button></a>
+  
+   <a href = "/dashboard"><button class="button"  id="blogDelete">DELETE</button></a>
   </div>
 
 </div>
-<script src="./js/blogupdate.js"></script>
+<script src="../js/blogupdate.js"></script>
