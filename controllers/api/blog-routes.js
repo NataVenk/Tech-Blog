@@ -41,7 +41,7 @@ router.post("/:id", async (req, res) => {
 
 /// modify blog
 router.put("/:id", async (req, res) => {
-  console.log("i'm here inside put");
+  
   try {
     const blogupdate = await Blog.update({
     
@@ -60,7 +60,7 @@ router.put("/:id", async (req, res) => {
 });
 /// delete blog
 router.delete("/:id", (req, res) => {
-  console.log ("inside delete")
+ 
    Blog.destroy({
       where: {
         id: req.params.id,

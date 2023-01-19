@@ -65,30 +65,7 @@ router.get("/blogs/:id", async (req, res) => {
     logged_in: req.session.logged_in,
   });
 });
-// router.get("/blog/:id", async (req, res) => {
-//   const blog = await Blog.findOne({
-//     where: { id: req.params.id },
-//   });
-  
-//   return res.render("blogcomment", {
-//     ...blog,
-//     logged_in: req.session.logged_in,
-//   });
-// });
 
-
-// router.get("user/blog/:id", async (req, res) => {
-//   const blog = await Blog.findOne({
-//     where: { id: req.params.id },
-//   });
-//   const blog2update = blog.get({ plain: true });
-//   console.log("=========");
-//   console.log(blog2update);
-//   return res.render("blogupdate", {
-//     blog2update,
-//     logged_in: req.session.logged_in,
-//   });
-// });
 
 router.get("/dashboard", withAuth, async (req, res) => {
   console.log("==================");
