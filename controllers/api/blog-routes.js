@@ -44,11 +44,14 @@ router.put("/:id", async (req, res) => {
   console.log("i'm here inside put");
   try {
     const blogupdate = await Blog.update({
-      id: req.body.id,
+    
       blog_topic: req.body.blog_topic,
       blog_body: req.body.blog_body,
       user_id: req.session.user_id,
-    });
+    },
+    {where:{
+      id: req.params.id
+    }});
     res.status(200).json(blogupdate);
   } catch (err) {
     console.log(err);

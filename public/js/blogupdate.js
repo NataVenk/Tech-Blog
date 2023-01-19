@@ -11,7 +11,7 @@ const updateBlog = async(event) => {
  
      const response = await fetch(`/api/blogs/${blog_id}`, {
        method: 'PUT',
-       body: JSON.stringify({ blog_topic, blog_body, blog_id}),
+       body: JSON.stringify({ blog_topic, blog_body }),
        headers: { 'Content-Type': 'application/json' },
      });
  
@@ -25,10 +25,12 @@ const updateBlog = async(event) => {
  };
 /// delete blog chosen
  const delBlog = async (event) => {
+  const blog_id = document.querySelector("#blog-com").value.trim();
+  
   // if (event.target.hasAttribute('blog-id')) {
   //   const id = event.target.getAttribute('blog-id');
 
-    const response = await fetch(`/api/blogs/${id}`, {
+    const response = await fetch(`/api/blogs/${blog_id}`, {
       method: 'DELETE',
     });
 
